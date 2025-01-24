@@ -19,7 +19,7 @@
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&to 1 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
 
@@ -27,11 +27,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 3>,
+                <&tog_off 0>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 0>,
                 <&macro_wait_time 500>,
-                <&tog_on 3>;
+                <&tog_on 0>;
 
             label = "BT0";
         };
@@ -40,11 +40,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 3>,
+                <&tog_off 0>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 1>,
                 <&macro_wait_time 500>,
-                <&tog_on 3>;
+                <&tog_on 0>;
 
             label = "BT1";
         };
@@ -53,11 +53,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 3>,
+                <&tog_off 0>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 2>,
                 <&macro_wait_time 500>,
-                <&tog_on 3>;
+                <&tog_on 0>;
 
             label = "BT2";
         };
@@ -66,11 +66,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 3>,
+                <&tog_off 0>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 3>,
                 <&macro_wait_time 500>,
-                <&tog_on 0>;
+                <&tog_on 1>;
 
             label = "BT3";
         };
@@ -79,11 +79,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 3>,
+                <&tog_off 0>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 4>,
                 <&macro_wait_time 500>,
-                <&tog_on 0>;
+                <&tog_on 1>;
 
             label = "BT4";
         };
@@ -125,12 +125,23 @@
     keymap {
         compatible = "zmk,keymap";
 
+        MAC_DEFAULT {
+            bindings = <
+&kp Q      &kp W     &kp E     &kp R                      &kp T                                        &kp Y        &kp U  &kp I      &kp O    &kp P
+&kp A      &kp S     &kp D     &kp F                      &kp G        &trans              &kp LS(AT)  &kp H        &kp J  &kp K      &kp L    &kp MINUS
+&kp Z      &kp X     &kp C     &kp V                      &kp B        &lt 6 COLON         &kp SEMI    &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH
+&kp LCTRL  &kp LALT  &kp LGUI  &mt LEFT_SHIFT LANGUAGE_1  &lt 7 SPACE  &lt 5 LANGUAGE_2    &kp BSPC    &lt 8 ENTER                             &kp DEL
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
         Win_default {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R                      &kp T                                           &kp Y        &kp U  &kp I      &kp O    &kp P
 &kp A             &kp S         &kp D         &kp F                      &kp G        &trans              &kp AT_SIGN    &kp H        &kp J  &kp K      &kp L    &kp MINUS
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                      &kp B        &lt 6 COLON         &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT LANGUAGE_1  &lt 1 SPACE  &lt 5 LANGUAGE_2    &kp BACKSPACE  &lt 2 ENTER                             &kp DEL
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT LANGUAGE_1  &lt 2 SPACE  &lt 5 LANGUAGE_2    &kp BACKSPACE  &lt 3 ENTER                             &kp DEL
             >;
 
             sensor-bindings =
@@ -160,17 +171,6 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        MAC_DEFAULT {
-            bindings = <
-&kp Q      &kp W     &kp E     &kp R                      &kp T                                        &kp Y        &kp U  &kp I      &kp O    &kp P
-&kp A      &kp S     &kp D     &kp F                      &kp G        &trans              &kp LS(AT)  &kp H        &kp J  &kp K      &kp L    &kp MINUS
-&kp Z      &kp X     &kp C     &kp V                      &kp B        &lt 6 COLON         &kp SEMI    &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH
-&kp LCTRL  &kp LALT  &kp LGUI  &mt LEFT_SHIFT LANGUAGE_1  &lt 7 SPACE  &lt 5 LANGUAGE_2    &kp BSPC    &lt 8 ENTER                             &kp DEL
-            >;
-
-            sensor-bindings = <&scroll_up_down>;
-        };
-
         MOUSE {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                    &trans  &trans    &trans    &trans    &trans
@@ -195,10 +195,10 @@
 
         Setting_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                            &Bt0    &Bt1    &Bt2    &Bt3    &Bt4
-&trans  &trans  &trans  &trans  &trans  &trans    &studio_unlock  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &bootloader     &trans  &trans  &trans  &trans  &bt BT_CLR
-&trans  &trans  &trans  &trans  &trans  &trans    &trans          &trans                          &bt BT_CLR_ALL
+&trans  &trans  &trans  &trans  &trans                            &Bt0       &Bt1       &Bt2    &Bt3    &Bt4
+&trans  &trans  &trans  &trans  &trans  &trans    &studio_unlock  &tog_on 0  &tog_on 1  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &bootloader     &trans     &trans     &trans  &trans  &bt BT_CLR
+&trans  &trans  &trans  &trans  &trans  &trans    &trans          &trans                                &bt BT_CLR_ALL
             >;
 
             sensor-bindings = <&scroll_up_down>;
