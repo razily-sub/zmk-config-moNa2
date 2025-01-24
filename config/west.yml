@@ -2,8 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: sayu-hub
-      url-base: https://github.com/sayu-hub
+    - name: razily-sub
+      url-base: https://github.com/razily-sub
     - name: caksoylar  # <-- new entry
       url-base: https://github.com/caksoylar  
   projects:
