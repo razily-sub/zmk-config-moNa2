@@ -60,7 +60,7 @@
 
         layer_1 {
             bindings = <
-&kp LG(A)  &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)                           &kp LESS_THAN         &kp GREATER_THAN       &kp F3           &kp F4         &kp F5
+&kp LG(A)  &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)                           &kp LESS_THAN         &kp GREATER_THAN       &kp CARET        &kp PERCENT    &kp DOLLAR
 &kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2   &trans    &kp BACKSLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN      &kp AMPERSAND  &kp DOUBLE_QUOTES
 &trans     &trans        &trans       &trans     &mkp MB3   &trans    &kp COLON      &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp QUESTION   &kp SQT
 &trans     &trans        &trans       &trans     &trans     &trans    &kp BACKSPACE  &kp ENTER                                                                    &kp HASH
